@@ -59,13 +59,15 @@ const Hotel = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const location = useLocation();
   const navigate = useNavigate();
+  const {options,date } = location.state || {};
 
   const handleReserve = (room) => {
     let isLoggedIn = localStorage.getItem("LoggedIn");
     if (isLoggedIn) {
       navigate("/fill_the_form", {
         state: {
-          // Pass necessary data here
+          options,
+          date,
           room,
           hotel
         }
