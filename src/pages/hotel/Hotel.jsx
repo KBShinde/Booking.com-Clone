@@ -67,6 +67,8 @@ const Hotel = () => {
   const navigate = useNavigate();
 
   const handleReserve = (room) => {
+    let isLoggedIn = localStorage.getItem("LoggedIn");
+    if ((isLoggedIn !== undefined && isLoggedIn !== null) && isLoggedIn) {
     navigate("/fill_the_form", {
       state: {
         date,
@@ -76,6 +78,9 @@ const Hotel = () => {
         hotel
       }
     });
+  } else {
+    navigate("/login");
+  }
   };
   const handleClickOpen = (index) => {
     setSelectedIndex(index);
