@@ -1,0 +1,64 @@
+/* explore.css */
+
+.explore {
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.exploreItem {
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.exploreImg {
+  display: flex;
+  justify-content: space-between;
+  gap:5px;
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+
+}
+
+.exploreTitles {
+  padding: 10px;
+}
+
+.exploreTitles > h1 {
+  font-size: 18px;
+  color: #444;
+  margin-bottom: 5px;
+}
+
+.exploreTitles > p {
+  font-size: 14px;
+  font-weight: 300;
+  color: #666;
+  margin-top: 0;
+}
+
+/* Styling for Slider arrows */
+.slick-prev,
+.slick-next {
+  width: 25px;
+  height: 25px;
+  z-index: 1;
+  background: none;
+  border: none;
+  outline: none;
+  color: rgb(53, 52, 52);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.slick-prev:before,
+.slick-next:before {
+  font-size: 30px;
+
+}

@@ -1,0 +1,47 @@
+.cityList {
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 1024px;
+    margin-top: -25px;
+  }
+  
+  .cityListText {
+    margin-left: 10px;
+  }
+  
+  .cityListItem {
+    padding: 10px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+  }
+  
+  .cityListImg {
+    width: 100%;
+    height: auto;
+    border-radius: 10px; /* Apply the same border-radius to the image */
+    margin-bottom: 10px;
+  }
+  
+  .cityListTitles {
+    text-align: start;
+  }
+  
+  .cityListTitles h1 {
+    font-size: 18px;
+    margin: 0;
+  }
+  
+  .slick-prev, .slick-next {
+    width: 20px;
+    height: 20px;
+    z-index: 1;
+  }
+  
+  .slick-prev:before, .slick-next:before {
+    font-size: 20px;
+    color: rgb(122, 118, 118);
+  }
+  

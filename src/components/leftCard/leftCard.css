@@ -1,0 +1,105 @@
+.listContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 90px;
+  margin-left: 80px;
+  margin-right: 20px;
+  width: 140px;
+}
+
+.listWrapper {
+  /* width: 100%;
+  max-width: 1024px; */
+  display: flex;
+  gap: 20px;
+}
+
+.listSearch {
+  flex: 1;
+  background-color: #febb02;
+  padding: 20px;
+  border-radius: 10px;
+  top: 10px;
+  height: max-content;
+}
+
+.lsTitle {
+  font-size: 24px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.lsItem {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.lsItem > label {
+  font-size: 14px;
+}
+
+.inputWithIcon {
+  position: relative;
+}
+
+.inputIcon {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  color: grey;
+  font-size: 15px;
+}
+
+.lsItem input {
+  height: 22px; /* Reduced height for the input fields */
+  border: none;
+  padding: 5px 5px 5px 25px; /* Adjusted padding to maintain space for the icon */
+  color: grey;
+  background-color: white;
+  border-radius: 5px;
+  font-size: 15px;
+}
+
+.custom-calendar {
+  max-width: 300px;
+}
+
+.lsOptions {
+  padding: 10px;
+}
+
+.lsOptionItem {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  color: #555;
+  font-size: 14px;
+}
+
+.lsOptionInput {
+  width: 50px;
+  color: grey;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.listSearch > button {
+  padding: 10px;
+  background-color: #0071c2;
+  color: white;
+  border: none;
+  width: 100%;
+  font-weight: 400;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 15px;
+}
+
+.listResult {
+  flex: 3;
+}

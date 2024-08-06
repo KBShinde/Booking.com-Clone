@@ -1,0 +1,197 @@
+.my-trips-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  padding: 20px;
+  background-color: #ffffff;
+}
+
+.tabs {
+  display: flex;
+  cursor: pointer;
+  margin-top: 20px; /* Adjusted to ensure consistent spacing */
+  margin-bottom: 20px; /* Adjusted to ensure consistent spacing */
+}
+
+.tab {
+  padding: 10px 20px;
+  background-color: #f1f1f1;
+  border: 1px solid #ddd;
+  margin-right: 5px;
+  border-radius: 5px;
+}
+
+.tab.active {
+  background-color: #0784f2;
+  color: white;
+}
+
+.tab-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  width: 100%;
+  max-width: 600px; 
+}
+
+.booking-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  text-align: start;
+  width: 100%; /* Ensure full width */
+  cursor: pointer;
+  position: relative;
+}
+
+.booking-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.booking-icon {
+  margin-right: 10px;
+  font-size: 30px;
+  color: #072ef2;
+}
+
+.booking-title {
+  font-size: 20px;
+  color: #333;
+  margin: 0;
+}
+
+.booking-name {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 5px 0;
+  color: #444;
+}
+
+.booking-location {
+  font-size: 16px;
+  color: #666;
+  margin: 5px 0;
+}
+
+.booking-status, .booking-date, .booking-end-date, .booking-price {
+  font-size: 16px;
+  color: #555;
+  margin: 5px 0;
+}
+
+.status-icon, .date-icon, .price-icon {
+  margin-right: 8px;
+  color: #072ef2;
+}
+
+.cancel-button {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  background: hsl(314, 94%, 49%);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.cancel-icon {
+  margin-right: 8px;
+}
+
+.cancel-button:hover {
+  background: hsl(314, 94%, 40%);
+}
+
+.trip-suggestions {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #ff5722;
+  font-style: italic;
+}
+
+.cancellation-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modal-content button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.modal-content button:first-child {
+  background: #072ef2;
+  color: white;
+}
+
+.modal-content button:last-child {
+  background: #f44336;
+  color: white;
+}
+
+.no-bookings-message {
+  text-align: center;
+  font-size: 18px;
+  color: #666;
+  margin-top: 20px;
+}
+
+.no-bookings-icon {
+  font-size: 50px;
+  color: #ff7b0e;
+}
+
+.no-bookings-text {
+  margin-top: 10px;
+}
+
+.airline-info-trip {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.airline-logo-trip {
+  width: 35px;
+  height:35px;
+  margin-right: 10px;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+.airline-info-trip h4 {
+  font-size: 16px;
+  color: #333;
+  margin: 0;
+}
+

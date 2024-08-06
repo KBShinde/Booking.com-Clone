@@ -1,0 +1,227 @@
+.ticket-container {
+  display: flex;
+  justify-content: center;
+  margin-top: -40px;
+}
+
+.left-side {
+    width: 290px;
+    height: 100%;
+    margin-right: 15px;
+    margin-top: -40px;
+    border: 1px solid rgb(213, 213, 213);
+}
+
+.filter-options {
+    width:681px;
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    border: 1px solid rgb(213, 213, 213);
+    border-radius: 8px;
+    margin-top: -40px;
+    margin-bottom: 10px;
+}
+
+.filter-option {
+    width: 223px;
+    background:none ;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+.filter-option:hover {
+    background-color: rgb(251, 251, 251);
+  }
+  
+.filter-option.active {
+    border-bottom: 2px solid rgba(0, 110, 255, 0.881);
+    color: rgb(0, 81, 255); /* Optional: Change color of active filter */
+  }
+
+.sort-price{
+    border-bottom: 1px solid rgb(213, 213, 213);
+
+  }
+
+.sort-price h4{
+    margin-left: 25px;
+}
+.sort-price label{
+    margin-left: 5px;
+    
+}
+
+.low-high {
+    margin-left: 15px;
+    margin-top: -8px;
+}
+
+.high-low {
+    margin-left: 15px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+.high {
+    margin-left: 15px;
+    margin-top: -10px;
+    margin-bottom: 15px;
+}
+
+.right-side{
+    display: flex;
+    margin-bottom: 10px;
+}
+.ticket-list {
+    width: 450px;
+    height: 220px;
+    border: 1px solid rgb(213, 213, 213);
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.plane-icon {
+    margin-top: 25px;
+    text-align: center;
+}
+.flight-id {
+   font-size: 10px;
+   color: rgb(67, 67, 67);
+   margin-top: -10px;
+}
+
+.i {
+    color: rgb(56, 92, 225);
+}
+.plane-icon h4 {
+    font-size: 14px ;
+    margin-top: 5px;
+}
+.depart-time p{
+   margin-top: -18px;
+   font-size: 12px;
+}
+
+.arrive-time  p {
+    margin-top: -18px;
+    font-size: 12px;
+ }
+ 
+.duration-text {
+    margin-top: 28px;
+    height: 20px;
+    width: 120px;
+    text-align: center;
+    font-size: 12px;
+    border-bottom: 2px solid rgb(175, 175, 175);
+}
+
+
+.flight-type {
+    text-align: center;
+    font-size: 12px;
+    margin-top: -10px;
+}
+
+.ticket-details {
+    width: 230px;
+    height: 220px;
+    border: 1px solid rgb(213, 213, 213);
+    border-left: none;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    top: 100px;
+}
+
+.bag-icons {
+    color: rgb(139, 139, 139);
+    float: right;
+    margin-right: 10px;
+    margin-top: 15px;
+}
+
+.icon-text {
+    font-size: 13px;
+    color: rgb(106, 106, 106);
+    display: flex;
+    text-align: right;
+    margin-top: 45px;
+    margin-right: 10px;
+
+}
+
+.ticket-price h2{
+    text-align: right;
+    margin-right: 10px;
+    margin-top: -5px;
+}
+
+.ticket-price p{
+    text-align: right;
+    margin-right: 10px;
+    margin-top: -20px;
+    font-size: 12px;
+}
+
+.ticket-details{
+    text-align: center;
+}
+
+.ticket-details button {
+    height: 35px;
+    width: 200px;
+    margin-top: 5px;
+    font-size: 17px;
+    font-weight: bold;
+    color: rgb(0, 76, 255);
+    background-color: white;
+    border: 1px solid rgb(0, 76, 255);
+    border-radius: 5px;    
+    cursor: pointer; 
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.ticket-details button:hover {
+    background-color: lightblue; 
+    border-color: darkblue; 
+}
+
+.seats-left {
+    color : red;
+    font-size: 14px;
+    margin-bottom: 5px;
+    text-align: right;
+    margin-right: 10px;
+}
+.airlines-sort{
+    margin-left: 15px;
+}
+
+.airlines-sort h4 {
+    margin-left: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.airline-img {
+    height: 40px;
+    width: 40px;
+    border-radius: 4px;
+}
+
+.airline-images {
+    height: 22px;
+    width: 22px;
+    margin-top: 10px;
+    margin-left: 5px; 
+    border-radius: 3px; 
+}
+
+.airlines-sort label{
+    margin-left: 5px;
+    margin-top: -10px;
+}

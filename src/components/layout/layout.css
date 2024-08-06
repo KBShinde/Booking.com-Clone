@@ -1,0 +1,36 @@
+/* layout.css */
+
+/* Default styles (for desktop) */
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; 
+}
+
+.main-content {
+  flex: 1; 
+  height: 100%;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  background-color: #f0f0f0; 
+  padding: 20px;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .layout {
+    flex-direction: column; /* Ensure column layout on mobile */
+  }
+
+  .footer-container {
+    padding: 10px; /* Adjust padding for smaller screens */
+  }
+  
+  .main-content {
+    padding: 10px; /* Add padding to ensure content doesn’t touch edges */
+  }
+}

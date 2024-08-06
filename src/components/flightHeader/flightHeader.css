@@ -1,0 +1,325 @@
+
+.flights {
+    text-align: start;
+    padding: 20px;
+    margin-bottom: 50px;
+    height: 140px;
+    background-color: #ffffff;
+  }
+  
+  .headingText {
+    margin-left: 250px;
+    margin-top: -20px;
+   
+  }
+  
+  .headerFlight {
+    color: white;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    padding-top: 15px;
+    background: none;
+  }
+  
+  .headerContainer {
+    width: 100%;
+    max-width: 1024px;
+    margin-top: 20px;
+  }
+  
+  .headerContainer.listMode {
+    margin: 20px 0px 0px 0px;
+  }
+  
+  .headerList {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 50px;
+  }
+  
+  .headerListItem:hover {
+    background-color: #0071c2;
+    border-radius: 20px;
+    padding: 10px;
+  }
+  
+  .headerListItem {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 10px;
+  }
+  
+  .headerListItem.active {
+    border: 2px solid white;
+    padding: 10px;
+    border-radius: 20px;
+  }
+  
+  .headerListItem .headerIcon {
+    margin-right: 10px;
+  }
+  
+  .headerDesc {
+    margin: 20px 0px;
+  }
+  
+
+
+  .headerBtn {
+    background-color: #0071c2;
+    color: white;
+    font-weight: 500;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .headerSearchFlight {
+    height: 30px;
+    background-color: white;
+    border: 5px solid #febb02;
+    margin: -40px;
+    margin-left: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    text-align: start;
+    padding: 10px 0px;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 15px;
+    width: 1000px;
+    max-width: 1024px;
+  }
+  
+  .headerIcon {
+    color: lightgray;
+  }
+  
+  .headerSearchItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    
+    
+  }
+  
+  .headerSearchInput {
+    border: none;
+    outline: none;
+    font-size: 14px;
+    font-weight: bold;
+    color: #3e3e3e;
+  }
+  
+
+  .errorMessage {
+    background-color: #d4111e;
+    color: white;
+    font-size: 15px;
+    position: absolute;
+    top: 35px;
+    left: 15px;
+    margin-top: 5px;
+    padding: 5px;
+    border-radius: 8px;
+  }
+  
+  .errorMessage::before {
+    content: "";
+    position: absolute;
+    top: -15px;
+    left: 8px;
+    border-width: 8px;
+    border-style: solid;
+    border-color: transparent transparent #d4111e transparent;
+  }
+  
+  /* Date picker styling */
+  .date {
+    position: absolute;
+    top: 50px;
+    z-index: 2;
+  }
+  
+  /* Options styling */
+  .options {
+    z-index: 2;
+    position: absolute;
+    top: 50px;
+    background-color: white;
+    color: gray;
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0.4);
+    box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0.4);
+  }
+  
+  .optionItem {
+    width: 200px;
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+  }
+  
+  .optionCounter {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    color: black;
+  }
+  
+  .optionCounterButton {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #0071c2;
+    color: #0071c2;
+    cursor: pointer;
+    background-color: white;
+  }
+  
+  .optionCounterButton:disabled {
+    cursor: not-allowed;
+  }
+  
+  /* Section styling */
+  .section {
+    display: flex;
+    text-align: start;
+    gap: 5px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 1024px;
+    margin: auto;
+  }
+  
+  /* Trip types, class types, direct flights, and other input sections */
+  .trip-types,
+  .class-types,
+  .passenger-info,
+  .direct-flights,
+  .location-inputs,
+  .date-inputs {
+    margin-bottom: 15px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .trip-types label,
+  .class-types label,
+  .direct-flights label {
+    margin-right: 15px;
+  }
+  
+  .trip-types input,
+  .class-types select,
+  .direct-flights input {
+    margin-right: 5px;
+  }
+  
+  /* Location and date inputs */
+  .location-inputs input,
+  .date-inputs input {
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    width: 80%;
+    max-width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  /* Search button styling */
+  .search-btn {
+    background-color: #0071c2;
+    color: white;
+    font-weight: 500;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+
+.react-calendar {
+  font-family: 'Arial', sans-serif;
+  border-radius: 8px; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+  position: absolute; 
+  top: calc(100% + 10px); 
+  left: 0; 
+  z-index: 1000;
+  width: 300px; 
+  max-height: 300px; 
+  overflow-y: auto; 
+}
+
+
+.react-calendar__tile {
+  padding: 8px;
+}
+
+
+.react-calendar__tile--now {
+  background-color: #0071c2; 
+  color: #fff; 
+}
+
+
+.react-calendar__tile--active {
+  background-color: #f0f0f0;
+  color: #333; 
+}
+
+
+.react-calendar__navigation {
+  background-color: #0071c2; 
+  color: #fff; 
+  border-radius: 8px; 
+}
+
+.suggestions {
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ccc;
+  width: 100%;
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 1000;
+  color:rgb(0, 0, 0);
+  width: 30%;
+  top:55px
+}
+
+.suggestion {
+  padding: 5px;
+  cursor: pointer;
+  
+}
+
+.suggestion:hover {
+  background-color: #f1f1f1;
+  color: black;
+}
+
+.pop-up-data {
+  display: flex;
+  margin-top: -12px;
+
+}
+
+.pop-up-data p {
+  font-size: 14px;
+  margin-top: 10px;
+  margin-left: 15px;
+
+}
+
+.pop-up-data h4 {
+  margin-top: 9px;
+
+}

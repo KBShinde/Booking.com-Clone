@@ -1,0 +1,65 @@
+.interList {
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 1024px;
+    margin-top: -100px;
+  }
+
+ .interListText {
+    margin-left: 10px;
+ } 
+
+.flightType {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-left: 10px;
+    margin-top: -5px;
+}  
+
+.flightType p {
+    cursor: pointer;
+    margin: 0 10px;
+    padding-bottom: 5px;
+  }
+  
+  .flightType p.active {
+    border-bottom: 2px solid blue;
+    color: blue;
+  }
+  
+  
+  .interListItem {
+    padding: 10px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .interListImg {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .interListTitles {
+    text-align: start;
+  }
+  
+  .interListTitles h1 {
+    font-size: 18px;
+    margin: 0;
+  }
+  .slick-prev, .slick-next {
+    width: 20px;
+    height: 20px;
+    z-index: 1;
+  }
+  
+  .slick-prev:before, .slick-next:before {
+    font-size: 20px;
+    color: rgb(122, 118, 118);
+   
+  }

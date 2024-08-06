@@ -1,0 +1,137 @@
+.details-container{
+    height: 600px;
+    width: 600px;
+}
+
+.details-container h3 {
+    margin-left: 25px;
+} 
+.dest-details {
+    height: 120px;
+    width: 200px;
+    margin-top: 80px;
+    margin-left: 25px;
+}
+
+.dest-details p {
+    margin-top: -15px;
+}
+
+.page-mid {
+    display: flex;
+    justify-content: space-between;
+    margin-top: -50px;
+}
+
+.departure-time-details {
+    margin-left: 50px;
+}
+
+.departure-time-details h4 {
+    margin-top: -12px;
+}
+
+.departure-time-details p {
+    font-size: 14px;
+}
+
+.flight-detail {
+    margin-right: 25px;
+}
+
+.flight-detail p {
+    font-size: 14px;
+    padding: 2px;
+    margin-top: 0px;
+}
+
+.baggage-detail {
+    border: 1px solid rgb(213,213,213);
+    width :100%;
+    height: 170px;
+    display: flex;
+    align-items: center;
+}
+
+.baggage-left {
+    width: 250px;
+    height: 155px;
+    margin-left: 20px;
+    margin-bottom: 30px;
+}
+
+.baggage-left p {
+    margin-top: -15px;
+}
+.baggage-right{
+    border-left: 1px solid rgb(213,213,213);
+    width: 500px;
+    height: 155px;
+   
+}
+.bags-icons label {
+    margin-left: 5px;
+}
+.bags-icons {
+    margin-left: 30px;
+    
+}
+.bags-icons p {
+    margin-top:0px;
+    margin-left: 25px;
+    font-size: 13px;
+}
+
+.price-detail {
+    width : 700px;
+    height: 110px;
+    border: 1px solid rgb(213,213,213);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 25px;
+}
+
+.price-amount {
+    margin-left: 20px;
+}
+
+.price-amount p {
+    margin-top: -18px;
+    font-size: 14px;
+    margin-left: 40px;
+}
+
+.price-detail button {
+    margin-right: 120px;
+    height: 40px;
+    width: 100px;
+    font-size: 16px;
+    background-color: rgb(0, 102, 255);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .price-detail button:hover {
+    background-color: #0066cc;
+  }
+
+  .ailines-detail{
+    display: flex;
+  }
+
+  .airline-logo{
+    height: 30px;
+    width: 30px;
+    margin-left: 5px;
+    border-radius: 3px;
+  }
+
+ .ailines-detail h4{
+     margin-top: 4px;
+     margin-left: 5px;
+}

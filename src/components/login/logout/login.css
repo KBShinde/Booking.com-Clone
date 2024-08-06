@@ -1,0 +1,70 @@
+.login-form {
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.email-adress h4 {
+    margin-bottom: 5px;
+    margin-right:220px;
+
+    color: rgb(36, 36, 36);
+}
+
+.email-id {
+    width: 320px;
+    height: 35px;
+    border: 2px solid rgb(0, 123, 255);
+    border-radius: 3px;
+    margin-bottom: 5px;
+    font-size: 13px;
+}
+
+.login-button {
+    width: 330px;
+    height: 35px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 10px 20px;
+    margin-top: 35px;
+    font-size: 15px;
+}
+
+.login-button:hover {
+    background-color: #0056b3;
+  }
+  .pass-info h4 {
+    margin-bottom: 5px;
+    margin-right: 250px;
+    
+    color: rgb(36, 36, 36);
+}
+
+.pass-input {
+    width: 320px;
+    height: 35px;
+    border: 2px solid rgb(0, 123, 255);
+    border-radius: 3px;
+    margin-bottom: 5px;
+    font-size: 13px;
+}
+
+.password-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.pass-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 15px; /* Adjust icon size if needed */
+    color: rgb(84, 84, 84);
+}

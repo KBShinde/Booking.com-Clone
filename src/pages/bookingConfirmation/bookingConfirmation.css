@@ -1,0 +1,237 @@
+
+.booking-confirmation-page {
+    margin-left: 270px;
+    height: 1200px; 
+}
+
+
+.booking-confirmation-contact {
+    border: 1px solid rgb(213, 213, 213);
+    width: 600px;
+    height: 120px;
+    margin-top: 50px;
+    border-radius: 8px;
+}
+
+.booking-confirmation-contact h2 {
+    margin-top: 5px;
+    margin-left: 15px;
+}
+
+.booking-confirmation-contact p {
+    margin-left: 15px;
+}
+
+.booking-confirmation-email {
+    margin-top: -12px;
+    margin-bottom: 15px;
+}
+
+
+.booking-confirmation-traveller {
+    border: 1px solid rgb(213, 213, 213);
+    width: 600px;
+    border-radius: 8px;
+    margin-top: 10px;
+    padding: 15px; 
+    box-sizing: border-box;
+}
+
+.booking-confirmation-traveller h2 {
+    margin-top: 5px;
+    margin-bottom: 15px; 
+    margin-left: 15px;
+}
+
+.booking-confirmation-traveller p {
+    margin: 5px 0; 
+    margin-left: 15px;
+}
+
+.booking-confirmation-email {
+    margin-top: 5px;
+}
+
+
+.booking-confirmation-traveller > div {
+    overflow: hidden;
+}
+
+
+
+.booking-confirmation-baggage {
+    width: 600px;
+    height: 280px;
+    border: 1px solid rgb(213, 213, 213);
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.booking-confirmation-baggage h2 {
+    margin-top: 5px;
+    margin-left: 15px;
+}
+
+.booking-confirmation-baggage p {
+    margin-top: -15px;
+    margin-left: 15px;
+}
+
+.booking-confirmation-baggage h4 {
+    margin-top: -15px;
+    margin-left: 15px;
+}
+
+
+.booking-confirmation-bags {
+    margin-left: 30px;
+}
+
+.booking-confirmation-bags label {
+    margin-left: 5px;
+}
+
+.booking-confirmation-bags p {
+    margin-top: 0px;
+    margin-left: 25px;
+    font-size: 13px;
+}
+
+.booking-confirmation-payment {
+    width: 600px;
+    height: 355px;
+    border: 1px solid rgb(213, 213, 213);
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.booking-confirmation-card img {
+    width: 200px;
+    height: 30px;
+    margin-top: -15px;
+}
+
+.booking-confirmation-payment h2 {
+    margin-top: 5px;
+    margin-left: 15px;
+}
+
+.booking-confirmation-payment p {
+    margin-top: -18px;
+    margin-left: 15px;
+}
+
+.booking-confirmation-payment h4 {
+    margin-left: 15px;
+}
+
+.booking-confirmation-card p {
+    margin-top: 5px;
+    margin-bottom: 8px;
+}
+
+.booking-confirmation-card input {
+    width: 280px;
+    height: 30px;
+    margin-left: 15px;
+    border-radius: 5px;
+    border: 1px solid rgb(192, 191, 191);
+    margin-top: -10px;
+}
+
+.card-input {
+    width: 280px;
+}
+
+.card-icon {
+    position: absolute;
+    left: 290px; 
+    transform: translateY(-50%);
+    pointer-events: none; 
+    color: #888;
+    font-size: 20px;
+}
+
+
+.card-info {
+    display: flex;
+}
+
+.card-info input {
+    width: 130px;
+}
+
+
+.booking-prev-button {
+    margin-right: 25px;
+    width: 70px;
+    height: 35px;
+    margin-left: 400px;
+    color: rgb(0, 132, 255);
+    background-color: white;
+    border: 1px solid rgb(0, 132, 255); 
+    border-radius: 5px; 
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer; 
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s; 
+}
+
+.booking-prev-button:hover {
+    background-color: rgb(0, 132, 255);
+    color: white; 
+    border-color: rgb(0, 132, 255); 
+}
+
+.booking-pay-button {
+    width: 100px;
+    height: 35px;
+    margin-top: 20px;
+    color: white;
+    background-color: rgb(0, 132, 255); 
+    border: 1px solid rgb(0, 132, 255); 
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.booking-pay-button:hover {
+    background-color: white;
+    color: rgb(0, 132, 255); 
+    border-color: rgb(0, 132, 255); 
+}
+
+
+.ticket-total {
+    display: flex;
+    gap: 100px;
+}
+
+.booking-confirmation-total {
+    margin-left: 650px;
+    margin-top: -140px;
+    width: 300px;
+    height: 140px;
+    
+}
+
+.booking-confirmation-total p {
+    margin-top: -15px;
+    font-size: 12px;
+}
+
+
+.airline-info {
+    display: flex;
+    margin-bottom: 2px;
+}
+
+.airline-info img {
+    height: 25px;
+    width: 25px;
+    margin-left: 15px;
+    border-radius: 3px;
+    margin-top: 2px;
+}

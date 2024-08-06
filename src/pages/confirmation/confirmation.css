@@ -1,0 +1,213 @@
+.confirm-page {
+    margin-left: 270px;
+    height: auto; /* Adjusted to fit dynamic content */
+    padding-bottom: 20px; /* Ensure content is not cut off */
+}
+
+.confirm-contact {
+    border: 1px solid rgb(213, 213, 213);
+    width: 600px;
+    height: auto; /* Adjusted to fit dynamic content */
+    margin-top: 50px;
+    border-radius: 8px;
+    padding: 15px; /* Added padding */
+    box-sizing: border-box;
+}
+
+.confirm-contact h2 {
+    margin-top: 5px;
+    margin-left: 15px;
+}
+
+.confirm-contact p {
+    margin-left: 15px;
+}
+
+.confirm-email {
+    margin-top: -12px;
+    margin-bottom: 15px;
+}
+
+.confirm-traveller {
+    border: 1px solid rgb(213, 213, 213);
+    width: 600px;
+    border-radius: 8px;
+    margin-top: 10px;
+    padding: 15px; /* Added padding */
+    box-sizing: border-box;
+}
+
+.confirm-traveller h2 {
+    margin-top: 5px;
+    margin-bottom: 15px;
+    margin-left: 15px;
+}
+
+.confirm-traveller p {
+    margin: 5px 0;
+    margin-left: 15px;
+}
+
+.confirm-traveller > div {
+    overflow: hidden;
+}
+
+.confirm-baggage {
+    width: 600px;
+    border: 1px solid rgb(213, 213, 213);
+    border-radius: 8px;
+    margin-top: 10px;
+    padding: 15px; /* Added padding */
+    box-sizing: border-box;
+}
+
+.confirm-baggage h2 {
+    margin-top: 5px;
+    margin-left: 15px;
+}
+
+.confirm-baggage p {
+    margin-top: -15px;
+    margin-left: 15px;
+}
+
+.confirm-baggage h4 {
+    margin-top: -15px;
+    margin-left: 15px;
+}
+
+.confirm-bags {
+    margin-left: 30px;
+}
+
+.confirm-bags label {
+    margin-left: 5px;
+}
+
+.confirm-bags p {
+    margin-top: 0px;
+    margin-left: 25px;
+    font-size: 13px;
+}
+
+.confirm-payment {
+    width: 600px;
+    border: 1px solid rgb(213, 213, 213);
+    border-radius: 8px;
+    margin-top: 10px;
+    padding: 15px; /* Added padding */
+    box-sizing: border-box;
+}
+
+.confirm-card img {
+    width: 200px;
+    height: 30px;
+    margin-top: -15px;
+}
+
+.confirm-payment h2 {
+    margin-top: 5px;
+    margin-left: 15px;
+}
+
+.confirm-payment p {
+    margin-top: -18px;
+    margin-left: 15px;
+}
+
+.confirm-payment h4 {
+    margin-left: 15px;
+}
+
+.confirm-card p {
+    margin-top: 5px;
+    margin-bottom: 8px;
+}
+
+.confirm-card input {
+    width: 280px;
+    height: 30px;
+    margin-left: 15px;
+    border-radius: 5px;
+    border: 1px solid rgb(192, 191, 191);
+    margin-top: -10px;
+}
+
+.card-input {
+    width: 280px;
+}
+
+.card-icon {
+    position: absolute;
+    left: 290px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #888;
+    font-size: 20px;
+}
+
+.card-info {
+    display: flex;
+}
+
+.card-info input {
+    width: 130px;
+}
+
+.prev-button {
+    margin-right: 25px;
+    width: 70px;
+    height: 35px;
+    margin-left: 400px;
+    color: rgb(0, 132, 255);
+    background-color: white;
+    border: 1px solid rgb(0, 132, 255);
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.prev-button:hover {
+    background-color: rgb(0, 132, 255);
+    color: white;
+    border-color: rgb(0, 132, 255);
+}
+
+.pay-button {
+    width: 100px;
+    height: 35px;
+    margin-top: 20px;
+    color: white;
+    background-color: rgb(0, 132, 255);
+    border: 1px solid rgb(0, 132, 255);
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.pay-button:hover {
+    background-color: white;
+    color: rgb(0, 132, 255);
+    border-color: rgb(0, 132, 255);
+}
+
+.ticket-total {
+    display: flex;
+    gap: 100px;
+}
+
+.confirm-total {
+    margin-left: 650px;
+    margin-top: -140px;
+    width: 300px;
+    height: 140px;
+}
+
+.confirm-total p {
+    margin-top: -15px;
+    font-size: 12px;
+}

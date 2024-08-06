@@ -1,0 +1,80 @@
+.offers {
+    display: flex;
+    justify-content: space-between;
+    gap: 5px; /* Adjust gap between .offer-card items */
+    width: 1035px;
+  }
+
+.offer-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 475px;
+    text-align: left;
+    overflow: hidden;
+    padding: 20px;
+    margin: 10px;
+  }
+.offer-content{
+    position: absolute;
+    
+    
+}
+.offer-title{
+  font-size: 13px;
+  padding-right: 5px;
+}
+
+.offer-card.second{
+    background:  url('https://r-xx.bstatic.com/xdata/images/xphoto/714x300/350960127.jpeg?k=e2732d40882766c8edd0001d7cca566de1d43af2d117b964f2e3ccf579d9a498&o=') no-repeat;
+    background-position: center;
+    width: 100%;
+    object-fit: cover;
+    max-width: fit-content;/* Adjust width as needed */
+    height: auto; /* Adjust height as needed */
+  }
+
+.second h3{
+    color:white;
+  }
+  
+.second p{
+    color:white;
+  }
+
+  .offer-card h3 {
+    margin-top: 10px;
+    font-size: 1.2em;
+    margin-bottom: 10px; /* Reduce gap between h3 and p */
+  }
+  
+  .first p {
+    margin-top: 0;
+    margin-bottom: 15px; /* Adjust spacing as needed */
+    color: #555;
+  }
+  
+  .offer-card button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px; /* Increase button border-radius for a more rounded look */
+    cursor: pointer;
+    padding: 10px 20px; /* Increase button padding */
+    font-size: 1em; /* Adjust font size */
+    margin-top: 10px;
+  }
+  
+  .offer-card button:hover {
+    background-color: #0056b3;
+  }
+
+
+  .plane-img img {
+    float: right;
+    width: 30%;
+    object-fit: cover;
+    border-top-right-radius: 8px; /* Rounded corners for image container */
+    border-bottom-right-radius: 8px;
+    
+  }

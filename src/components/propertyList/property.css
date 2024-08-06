@@ -1,0 +1,42 @@
+.pList {
+  margin: 0 auto;
+  padding: 20px;
+  max-width: 1024px;
+}
+
+.pListItem {
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pListImg {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.pListTitles {
+  text-align: start;
+}
+
+.pListTitles h1 {
+  font-size: 18px;
+  margin: 0;
+}
+.slick-prev, .slick-next {
+  width: 20px;
+  height: 20px;
+  z-index: 1;
+}
+
+.slick-prev:before, .slick-next:before {
+  font-size: 20px;
+  color: rgb(122, 118, 118);
+ 
+}

@@ -1,0 +1,154 @@
+.navbar {
+  height: 50px;
+  background-color: #003580;
+  display: flex;
+  justify-content: center;
+}
+
+.navContainer {
+  width: 100%;
+  max-width: 1024px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.logo {
+  font-weight: 500;
+}
+
+.navButton {
+  margin-left: 20px;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  color: #003580;
+  background-color: white; /* Ensure buttons have a visible background */
+}
+
+.profile-container {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 0;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.profile label {
+  margin-left: 5px;
+  font-size: 17px;
+}
+
+.profile-icon {
+  width: 30px;
+  height: 30px;
+  background-color: rgb(210, 210, 210);
+  border-radius: 2px;
+  border: 2px solid rgb(217, 160, 2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.p-icon {
+  font-size: 22px;
+  color: black;
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  color: #003580;
+  border: 1px solid #ccc;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  width: 135px; 
+  margin-top: 3px;
+  border-radius: 5px;
+}
+
+.dropdown ul {
+  list-style: none;
+  padding: 2px;
+  margin: 0;
+}
+
+.dropdown ul li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dropdown ul li:hover {
+  background-color: #f1f1f1;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .navContainer {
+    flex-direction: row; /* Keep items in a row */
+    align-items: center; /* Align items in the center */
+    justify-content: space-between; /* Space between items */
+    position: relative;
+    padding: 0 10px; /* Add padding for mobile view */
+  }
+
+  .logo {
+    font-size: 18px;
+  }
+
+  .navButton {
+    margin-left: 10px; /* Reduce margin for mobile view */
+    padding: 5px 10px; /* Adjust padding for mobile view */
+    font-size: 14px; /* Adjust font size for mobile view */
+  }
+
+  .profile-container {
+    position: absolute;
+    right: 10px; /* Adjust right position for mobile view */
+    display: flex;
+    align-items: center;
+  }
+
+  .profile {
+    justify-content: center;
+  }
+
+  .profile label {
+    font-size: 14px; /* Adjust font size for mobile view */
+  }
+
+  .profile-icon {
+    width: 25px; /* Adjust size for mobile view */
+    height: 25px; /* Adjust size for mobile view */
+  }
+
+  .p-icon {
+    font-size: 18px; /* Adjust icon size for mobile view */
+  }
+
+  .dropdown {
+    width: 100%; /* Full width on mobile */
+    right: 0;
+    top: 100%;
+    border-radius: 0;
+  }
+
+  .dropdown ul {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .dropdown ul li {
+    padding: 15px;
+    text-align: center; /* Center align text */
+  }
+}

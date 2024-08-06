@@ -1,0 +1,71 @@
+.register-form {
+  text-align: center;
+    height: 700px;
+}
+
+.user-input,
+.email-input,
+.password-input {
+    width: 320px;
+    height: 30px;
+    border: 2px solid rgb(0, 123, 255);
+    border-radius: 3px;
+    margin-bottom: 5px;
+    font-size: 13px; 
+}
+
+.user-info h4 {
+    margin-bottom: 5px;
+    margin-right: 240px;
+    color: rgb(36, 36, 36);
+}
+
+.email-info h4 {
+    margin-bottom: 5px;
+    margin-right: 220px;
+    color: rgb(36, 36, 36);
+}
+
+.email-button {
+    width: 320px;
+    height: 45px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 10px 20px;
+    margin-top: 15px;
+    font-size: 16px; /* Adjust font size of button text */
+}
+
+.email-button:hover {
+    background-color: #0056b3;
+}
+
+.password-info h4 {
+    margin-bottom: 5px;
+    margin-right: 210px;
+    color: rgb(36, 36, 36);
+}
+
+.confirm-pass h4 {
+    margin-bottom: 5px;
+    margin-right: 190px;
+    color: rgb(36, 36, 36);
+}
+
+.password-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.password-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 14px; /* Increase icon size if needed */
+    color: rgb(69, 69, 69);
+}
