@@ -10,15 +10,15 @@ export default function Navbar() {
   const location = useLocation();
   const [loggedInOut, setLoggedInOut] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
+  const isLoggedIn = localStorage.getItem("LoggedIn");
   useEffect(() => {
-    const isLoggedIn = localStorage.getItem("LoggedIn");
+    
     if (isLoggedIn) {
       setLoggedInOut(true);
     } else {
       setLoggedInOut(false);
     }
-  }, []); 
+  }, [isLoggedIn]); 
   
 
   const handleLoginClick = () => {
@@ -28,7 +28,7 @@ export default function Navbar() {
   const handleLogOutClick = () => {
     localStorage.removeItem("LoggedIn");
     setLoggedInOut(false);
-    setIsDropdownOpen(false); // Close the dropdown on logout
+    setIsDropdownOpen(false); 
     navigate('/');
   };
 
@@ -57,7 +57,7 @@ export default function Navbar() {
                 </div>
                 <label>Your account</label>
               </div>
-              {isDropdownOpen && (
+              {isDropdownOpen &&   (
                 <div className="dropdown">
                   <ul>
                     <li onClick={handleMyTrips}><FontAwesomeIcon icon={faSuitcase} /> My trips</li>

@@ -10,6 +10,7 @@ const LeftSideList = () => {
   const [filterTemp, setFilterTemp] = useState([]);
   const [value, setValue] = useState([1000, 10000]);
   const [hotels, setHotels] = useState([]);
+  const [noHotelsMessage, setNoHotelsMessage] = useState('');
 
   const [sortByPrice, setSortByPrice] = useState(null);
   const [sortByRating, setSortByRating] = useState(null);
@@ -40,34 +41,53 @@ const LeftSideList = () => {
   });
 
   const fetchData = useCallback(async () => {
-    if (destination) {
-      let url = `https://academics.newtonschool.co/api/v1/bookingportals/hotel?search={"location":"${destination}"}`;
+    if (!destination) {
+      setNoHotelsMessage('Please provide a destination.');
+      return;
+    }
 
-      try {
-        const response = await fetch(url, {
-          method: 'GET',
-          headers: {
-            'projectID': 'f104bi07c490',
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer YOUR_ACCESS_TOKEN'
-          }
-        });
+    let url = `https://academics.newtonschool.co/api/v1/bookingportals/hotel?search={"location":"${destination}"}`;
 
-        if (!response.ok) {
-          throw new Error('Failed to fetch data');
+    try {
+      const response = await fetch(url, {
+        method: 'GET',
+        headers: {
+          'projectID': 'f104bi07c490',
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer YOUR_ACCESS_TOKEN'
         }
+      });
 
-        const jsonData = await response.json();
-        console.log('Response data:', jsonData);
-        if (jsonData && jsonData.data && jsonData.data.hotels) {
+      if (!response.ok) {
+        let errorMsg = `Failed to fetch data: ${response.status} ${response.statusText}`;
+        throw new Error(errorMsg);
+      }
+
+      const jsonData = await response.json();
+
+      if (jsonData && jsonData.data && Array.isArray(jsonData.data.hotels)) {
+        if (jsonData.data.hotels.length > 0) {
           setHotels(jsonData.data.hotels);
           setFilterTemp(jsonData.data.hotels);
+          setNoHotelsMessage('');
         } else {
-          console.error('Invalid response format:', jsonData);
+          setHotels([]);
+          setFilterTemp([]);
+          setNoHotelsMessage("We're sorry, but no hotels are available in the specified city right now. Please try another city or check back later. Thank you for your patience!");
         }
-      } catch (error) {
-        console.error('Error fetching data:', error.message);
+      } else {
+        setHotels([]);
+        setFilterTemp([]);
+        setNoHotelsMessage('Invalid response from the server. Please try again later.');
       }
+    } catch (error) {
+      if (error.name === 'TypeError') {
+        setNoHotelsMessage('Network error or URL is incorrect. Please try again later.');
+      } else {
+        setNoHotelsMessage('Error fetching data. Please try again later.');
+      }
+      setHotels([]);
+      setFilterTemp([]);
     }
   }, [destination]);
 
@@ -268,9 +288,12 @@ const LeftSideList = () => {
           </div>
         </div>
       </div>
-      <div className="listResult">
+        <div className="listResult">
+        {noHotelsMessage && <p>{noHotelsMessage}</p>}
         <SearchItemList hotels={filterTemp} />
       </div>
+
+
     </div>
   );
 };
