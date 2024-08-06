@@ -1,15 +1,12 @@
 import "./leftSideList.css";
-import { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useEffect, useState, useCallback } from "react";
+import { useLocation } from "react-router-dom";
 import { Slider, Box } from '@mui/material';
 import SearchItemList from "../searchItemList/SearchItemList";
 
 const LeftSideList = () => {
   const location = useLocation();
-  const navigate = useNavigate();
-  const [destination, setDestination] = useState(location.state?.destination || "");
-  const [date, setDate] = useState(location.state?.date || "");
-  const [options, setOptions] = useState(location.state?.options|| "");
+  const destination = location.state?.destination || "";
   const [filterTemp, setFilterTemp] = useState([]);
   const [value, setValue] = useState([1000, 10000]);
   const [hotels, setHotels] = useState([]);
@@ -18,13 +15,13 @@ const LeftSideList = () => {
   const [sortByRating, setSortByRating] = useState(null);
 
   const [priceCheck, setPriceCheck] = useState({
-    low : false,
-    high :false,
+    low: false,
+    high: false,
   });
 
   const [ratingCheck, setRatingCheck] = useState({
-    low : false,
-    high :false,
+    low: false,
+    high: false,
   });
 
   const [roomTypeCheckedItems, setRoomTypeCheckedItems] = useState({
@@ -34,18 +31,15 @@ const LeftSideList = () => {
     single: false,
   });
 
-  const handlePriceRangeChange = (e, newValue) => {
-    setValue(newValue);
+  const [checkedItems, setCheckedItems] = useState({
+    "1": false,
+    "2": false,
+    "3": false,
+    "4": false,
+    "5": false,
+  });
 
-    let filteredPriceData = hotels.filter(hotel => hotel.avgCostPerNight >= newValue[0] && hotel.avgCostPerNight <= newValue[1]);
-    setFilterTemp(filteredPriceData);
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, [destination]);
-
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     if (destination) {
       let url = `https://academics.newtonschool.co/api/v1/bookingportals/hotel?search={"location":"${destination}"}`;
 
@@ -55,7 +49,7 @@ const LeftSideList = () => {
           headers: {
             'projectID': 'f104bi07c490',
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer YOUR_ACCESS_TOKEN' 
+            'Authorization': 'Bearer YOUR_ACCESS_TOKEN'
           }
         });
 
@@ -75,20 +69,18 @@ const LeftSideList = () => {
         console.error('Error fetching data:', error.message);
       }
     }
+  }, [destination]);
+
+  useEffect(() => {
+    fetchData();
+  }, [destination, fetchData]);
+
+  const handlePriceRangeChange = (e, newValue) => {
+    setValue(newValue);
+
+    let filteredPriceData = hotels.filter(hotel => hotel.avgCostPerNight >= newValue[0] && hotel.avgCostPerNight <= newValue[1]);
+    setFilterTemp(filteredPriceData);
   };
-
-  const [checkedItems, setCheckedItems] = useState({
-    "1": false,
-    "2": false,
-    "3": false,
-    "4": false,
-    "5": false,
-  });
-
-  const [limits, setLimits] = useState({
-    "minLimit": 0,
-    "maxLimit": 6,
-  });
 
   const handleCheckboxChange = (e) => {
     const { name, checked } = e.target;
@@ -104,7 +96,6 @@ const LeftSideList = () => {
       "maxLimit": Math.max(...intArr),
     };
 
-    setLimits(limit);
     let filteredData = hotels.filter(hotel => hotel.rating >= limit.minLimit && hotel.rating <= limit.maxLimit + 1);
     setFilterTemp(filteredData);
     setCheckedItems(updatedCheckedItems);
@@ -113,39 +104,33 @@ const LeftSideList = () => {
   const handleRoomTypeChange = (e) => {
     const { name, checked } = e.target;
     const updatedRoomTypeCheckedItems = { ...roomTypeCheckedItems, [name]: checked };
-  
+
     const allUnchecked = Object.values(updatedRoomTypeCheckedItems).every(item => item === false);
     if (allUnchecked) {
       fetchData();
     }
-  
+
     const selectedRoomTypes = Object.keys(updatedRoomTypeCheckedItems)
       .filter(key => updatedRoomTypeCheckedItems[key])
       .map(type => type.toLowerCase());
-  
-    console.log("Selected room types:", selectedRoomTypes);
-    console.log("Hotels data:", hotels);
-  
+
     const filteredRoomData = hotels.filter(hotel => {
       const roomTypes = hotel.rooms.map(room => room.roomType.toLowerCase());
       return selectedRoomTypes.some(type => roomTypes.includes(type));
     });
-  
-    console.log("Filtered data:", filteredRoomData);
+
     setFilterTemp(filteredRoomData);
     setRoomTypeCheckedItems(updatedRoomTypeCheckedItems);
   };
 
- const handlePriceSortChange = (option) => {
+  const handlePriceSortChange = (option) => {
     setSortByPrice(option);
 
     if (priceCheck[option]) {
       setPriceCheck({ ...priceCheck, [option]: false });
-      fetchData()
-      setSortByPrice(null); 
-    } 
-
-    if (option === 'low') {
+      fetchData();
+      setSortByPrice(null);
+    } else if (option === 'low') {
       const sortedHotels = [...filterTemp].sort((a, b) => a.avgCostPerNight - b.avgCostPerNight);
       setFilterTemp(sortedHotels);
       setPriceCheck({ ...priceCheck, low: true, high: false });
@@ -161,15 +146,12 @@ const LeftSideList = () => {
 
     if (ratingCheck[option]) {
       setRatingCheck({ ...ratingCheck, [option]: false });
-      fetchData()
-      setSortByRating(null); 
-    } 
-
-    if (option === 'low') {
+      fetchData();
+      setSortByRating(null);
+    } else if (option === 'low') {
       const sortedHotels = [...filterTemp].sort((a, b) => a.rating - b.rating);
       setFilterTemp(sortedHotels);
       setRatingCheck({ ...ratingCheck, low: true, high: false });
-
     } else if (option === 'high') {
       const sortedHotels = [...filterTemp].sort((a, b) => b.rating - a.rating);
       setFilterTemp(sortedHotels);
@@ -191,10 +173,6 @@ const LeftSideList = () => {
     { id: 'deluxe', label: 'Deluxe', count: 13 },
     { id: 'single', label: 'Single', count: 18 },
   ];
-
-  const handleSearchClick = () => {
-    // navigate("/hotels/_.id", { state: { destination, date, options } });
-  };
 
   return (
     <div className="filterContainer">
@@ -249,46 +227,46 @@ const LeftSideList = () => {
           ))}
         </div>
         <div className="filterText">
-        <h3>Sort by:</h3>
-      </div>
+          <h3>Sort by:</h3>
+        </div>
         <div className="popular">
-        <h3>Property price</h3>
-        <div className="filterItemPrice">
-          <input
-            type="checkbox"
-            checked={sortByPrice === 'low'}
-            onChange={() => handlePriceSortChange('low')}
-          />
-          <label>Price (low to high)</label>
+          <h3>Property price</h3>
+          <div className="filterItemPrice">
+            <input
+              type="checkbox"
+              checked={sortByPrice === 'low'}
+              onChange={() => handlePriceSortChange('low')}
+            />
+            <label>Price (low to high)</label>
+          </div>
+          <div className="filterItemPrice">
+            <input
+              type="checkbox"
+              checked={sortByPrice === 'high'}
+              onChange={() => handlePriceSortChange('high')}
+            />
+            <label>Price (high to low)</label>
+          </div>
         </div>
-        <div className="filterItemPrice">
-          <input
-            type="checkbox"
-            checked={sortByPrice === 'high'}
-            onChange={() => handlePriceSortChange('high')}
-          />
-          <label>Price (high to low)</label>
-        </div>
-      </div>
         <div className="popular">
           <h3>Property Rating</h3>
-
           <div className="filterItemRating">
-          <input type="checkBox"
-            checked={sortByRating === 'low'}
-            onChange={() => handleRatingSortChange('low')}
-          />
-          <label>Rating(low to high)</label>
+            <input
+              type="checkbox"
+              checked={sortByRating === 'low'}
+              onChange={() => handleRatingSortChange('low')}
+            />
+            <label>Rating (low to high)</label>
           </div>
           <div className="filterItemRating">
-          <input type="checkBox"
-            checked={sortByRating === 'high'}
-            onChange={() => handleRatingSortChange('high')}
-          />
-          <label>Rating(high to low)</label>
+            <input
+              type="checkbox"
+              checked={sortByRating === 'high'}
+              onChange={() => handleRatingSortChange('high')}
+            />
+            <label>Rating (high to low)</label>
           </div>
-          </div>
-
+        </div>
       </div>
       <div className="listResult">
         <SearchItemList hotels={filterTemp} />
@@ -296,6 +274,5 @@ const LeftSideList = () => {
     </div>
   );
 };
+
 export default LeftSideList;
-
-

@@ -15,7 +15,6 @@ const DetailsForm = () => {
     formattedDate = '',
     startDate = '',
     airline = { logo: '', name: '' },
-    options = {},
     adults = 1
   } = location.state || {};
 

@@ -1,6 +1,5 @@
 import "./home.css";
 import React from "react";
-import Navbar from "../../components/navbar/Navbar";
 import HeaderB from "../../components/headerB/HeaderB";
 import Featured from "../../components/featured/Featured";
 import Property from "../../components/propertyList/Property";
@@ -8,7 +7,6 @@ import Explore from "../../components/explore/Explore";
 import FeaturedProperties from "../../components/featuredProperties/FeaturedProperties";
 import UniqueProperties from "../../components/uniqueProperties/UniqueProperties";
 import MailList from "../../components/mailList/MailList";
-import Footer from "../../components/footer/Footer";
 import OfferCard from "../../components/offerCard/OfferCard";
 
 const Home = () => {

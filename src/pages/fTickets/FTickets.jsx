@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import './fTickets.css';
 import FlightHeader from '../../components/flightHeader/FlightHeader';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlaneDeparture } from '@fortawesome/free-solid-svg-icons';
 import { Luggage, BusinessCenter, Backpack } from '@mui/icons-material';
 import { Dialog, IconButton } from "@mui/material";
 import CloseIcon from '@mui/icons-material/Close';
@@ -27,7 +25,7 @@ const FTickets = () => {
   const [error, setError] = useState(null);
   const [open, setOpen] = useState(false);
   const [selectedFlight, setSelectedFlight] = useState(null);
-  const [activeFilter, setActiveFilter] = useState('best'); 
+  const [activeFilter, setActiveFilter] = useState('best');
   const [value, setValue] = useState([2000, 2500]);
   const [sortOrder, setSortOrder] = useState(null);
   const [stopsFilter, setStopsFilter] = useState([]);
@@ -40,33 +38,36 @@ const FTickets = () => {
   const city = params.get('city') || 'Unknown City';
   const startDate = new Date(params.get('startDate') || new Date());
   const options = JSON.parse(params.get('options') || '{}');
-  const adults = location?.state?.adults || 1; 
-  // const flight = location?.state?.flight || {}; // Default to empty object if not provided
+  const adults = location?.state?.adults || 1;
 
-  const fetchFlights = async () => {
-    try {
-      const response = await fetch(
-        `https://academics.newtonschool.co/api/v1/bookingportals/flight?search={"source":"${source}","destination":"${destination}"}&day=${day}`,
-        {
-          method: 'GET',
-          headers: {
-            projectID: 'f104bi07c490',
-          },
+  useEffect(() => {
+    const fetchFlights = async () => {
+      try {
+        const response = await fetch(
+          `https://academics.newtonschool.co/api/v1/bookingportals/flight?search={"source":"${source}","destination":"${destination}"}&day=${day}`,
+          {
+            method: 'GET',
+            headers: {
+              projectID: 'f104bi07c490',
+            },
+          }
+        );
+        const data = await response.json();
+        if (data.status === 'success') {
+          setFlights(data.data.flights);
+          setInitialFlights(data.data.flights);
+        } else {
+          setError('Failed to fetch flights.');
         }
-      );
-      const data = await response.json();
-      if (data.status === 'success') {
-        setFlights(data.data.flights);
-        setInitialFlights(data.data.flights);
-      } else {
-        setError('Failed to fetch flights.');
+      } catch (err) {
+        setError('An error occurred while fetching flights.');
+      } finally {
+        setLoading(false);
       }
-    } catch (err) {
-      setError('An error occurred while fetching flights.');
-    } finally {
-      setLoading(false);
-    }
-  };
+    };
+
+    fetchFlights();
+  }, [location.search, source, destination, day]); // Include `source`, `destination`, and `day` as dependencies
 
   const handleCheapestPrice = () => {
     const sortedFlights = [...flights].sort((a, b) => a.ticketPrice - b.ticketPrice);
@@ -153,17 +154,13 @@ const FTickets = () => {
     setFlights(filteredPriceData);
   };
 
-  useEffect(() => {
-    fetchFlights();
-  }, [location.search]);
-
   const handleClickOpen = (flight) => {
     const airlineCode = flight.flightID.slice(0, 5);
     const selectedAirline = airlineMapping[airlineCode] || { name: 'Unknown', logo: 'default-logo.png' };
     setSelectedFlight({ ...flight, airline: selectedAirline });
     setOpen(true);
   };
-  
+
   const handleClose = () => {
     setOpen(false);
   };
@@ -240,35 +237,35 @@ const FTickets = () => {
           <div className='airlines-sort'>
             <h4>Airlines</h4>
             {Object.entries(airlineMapping).map(([id, airline]) => (
-                <div key={id} className=''>
-                  <input
-                    type="checkbox"
-                    checked={airlineFilter.includes(id)}
-                    onChange={() => handleAirlineChange(id)}
-                    className='airline-input'
-                  />
-                  <img className="airline-images" src={airline.logo} alt={airline.name} />
-                  <label className='airline-name'>{airline.name}</label>
-                </div>
-              ))}
+              <div key={id}>
+                <input
+                  type="checkbox"
+                  checked={airlineFilter.includes(id)}
+                  onChange={() => handleAirlineChange(id)}
+                  className='airline-input'
+                />
+                <img className="airline-images" src={airline.logo} alt={airline.name} />
+                <label className='airline-name'>{airline.name}</label>
+              </div>
+            ))}
           </div>
         </div>
         <div>
           <div className='filter-options'>
-            <button 
+            <button
               className={`filter-option ${activeFilter === 'best' ? 'active' : ''}`}
               onClick={handleBest}
             >
               Best
             </button>
-            <button 
-              className={`filter-option ${activeFilter === 'cheapest' ? 'active' : ''}`} 
+            <button
+              className={`filter-option ${activeFilter === 'cheapest' ? 'active' : ''}`}
               onClick={handleCheapestPrice}
             >
               Cheapest
             </button>
             <button
-              className={`filter-option ${activeFilter === 'fastest' ? 'active' : ''}`} 
+              className={`filter-option ${activeFilter === 'fastest' ? 'active' : ''}`}
               onClick={handleFastest}
             >
               Fastest
@@ -327,7 +324,7 @@ const FTickets = () => {
               },
             }}
           >
-            <IconButton aria-label="close" onClick={handleClose} 
+            <IconButton aria-label="close" onClick={handleClose}
               sx={{
                 position: 'absolute',
                 right: 2,

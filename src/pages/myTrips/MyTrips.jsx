@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHotel, faPlane, faTimes, faCalendarDay, faCalendarAlt, faIndianRupeeSign, faKey, faChair } from '@fortawesome/free-solid-svg-icons';
 import './myTrips.css';
@@ -22,44 +21,44 @@ const MyTrips = () => {
   let token = localStorage.getItem("token");
 
   useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = async () => {
-    try {
-      const response = await fetch(
-        `https://academics.newtonschool.co/api/v1/bookingportals/booking/`,
-        {
-          method: "GET",
-          headers: {
-            projectID: "f104bi07c490",
-            "Content-Type": "application/json",
-            'Authorization': `Bearer ${token}`,
-          },
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          `https://academics.newtonschool.co/api/v1/bookingportals/booking/`,
+          {
+            method: "GET",
+            headers: {
+              projectID: "f104bi07c490",
+              "Content-Type": "application/json",
+              'Authorization': `Bearer ${token}`,
+            },
+          }
+        );
+  
+        if (!response.ok) {
+          throw new Error("Failed to fetch data");
         }
-      );
-
-      if (!response.ok) {
-        throw new Error("Failed to fetch data");
+  
+        const jsonData = await response.json();
+        setTrips(jsonData.data || []);
+      } catch (error) {
+        console.error(error.message);
       }
-
-      const jsonData = await response.json();
-      setTrips(jsonData.data || []);
-    } catch (error) {
-      console.error(error.message);
-    }
-  };
-
+    };
+  
+    fetchData();
+  }, [token]); // Include token if it's used inside fetchData
+  
   const cancelBooking = async () => {
     const currentTime = new Date();
     const bookingTime = new Date(bookingToCancel.start_date);
     const timeDifference = (bookingTime - currentTime) / (1000 * 60 * 60); // difference in hours
 
-    // if (timeDifference <= 5) {
-    //   alert('Cannot cancel the booking within 5 hours of the start time.');
-    //   setIsCancellationModalVisible(false);
-    //   return;
-    // }
+     if (timeDifference <= 5) {
+      alert('Cannot cancel the booking within 5 hours of the start time.');
+      setIsCancellationModalVisible(false);
+     return;
+     }
 
     try {
       const response = await fetch(

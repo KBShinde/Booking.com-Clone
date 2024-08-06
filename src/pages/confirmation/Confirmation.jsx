@@ -10,51 +10,31 @@ const Confirmation = () => {
   const {
     room,
     date = [{ startDate: new Date(), endDate: new Date() }],
-    destination,
     hotel,
     email,
     phone,
     travelerDetails = [],
     total
   } = location.state || {};
-  console.log("date :", date);
-
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  const formatDate = (inputDate) => {
-    return new Date(inputDate).toLocaleDateString('en-GB', {
-      day: '2-digit',
-      month: 'short',
-      // year: 'numeric'
-    });
-  };
-
-  const convertDate = (inputDate, end) => {
+  // Utility function to convert date to ISO string
+  const convertDate = (inputDate) => {
     if (!inputDate) return '';
-    let date = new Date(inputDate);
-    if (end) {
-      date = new Date(date.getTime() + (4 * 60 * 60 * 1000));
-    }
-    const year = date.getUTCFullYear();
-    const month = String(date.getUTCMonth() + 1).padStart(2, '0');
-    const day = String(date.getUTCDate()).padStart(2, '0');
-    const hours = String(date.getUTCHours()).padStart(2, '0');
-    const minutes = String(date.getUTCMinutes()).padStart(2, '0');
-    const seconds = String(date.getUTCSeconds()).padStart(2, '0');
-    const milliseconds = String(date.getUTCMilliseconds()).padStart(3, '0');
-    
-    return `${year}-${month}-${day}T${hours}:${minutes}:${seconds}.${milliseconds}+00:00`;
+    const date = new Date(inputDate);
+    return date.toISOString();
   };
 
+  // Handle payment
   const payNow = async () => {
-    let token = localStorage.getItem("token");
-    
+    const token = localStorage.getItem("token");
+
     if (!date || !date[0]) {
       setError('Invalid date information.');
       return;
     }
-  
+
     try {
       const response = await fetch('https://academics.newtonschool.co/api/v1/bookingportals/booking', {
         method: 'POST',
@@ -65,23 +45,23 @@ const Confirmation = () => {
           'projectID': 'f104bi07c490'
         },
         body: JSON.stringify({
-          "bookingType": "hotel",
-          "bookingDetails": {
-            "hotelId": hotel._id,
-            "startDate": convertDate(date[0].startDate),
-            "endDate": convertDate(date[0].endDate)
+          bookingType: "hotel",
+          bookingDetails: {
+            hotelId: hotel._id,
+            startDate: convertDate(date[0].startDate),
+            endDate: convertDate(date[0].endDate)
           }
         })
       });
-  
+
       if (!response.ok) {
         const errorData = await response.json();
         console.error('API Error:', errorData);
         throw new Error('Booking failed. Please try again.');
       }
-  
+
       navigate("/my_trips");
-  
+
     } catch (error) {
       console.error('Caught Error:', error);
       setError(error.message);
@@ -90,6 +70,8 @@ const Confirmation = () => {
 
   return (
     <div className='confirm-page'>
+      {error && <div className="error-message">{error}</div>} {/* Display error message */}
+
       <div className='confirm-contact'>
         <h2>Contact Details</h2>
         <p>+{phone}</p>

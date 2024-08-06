@@ -2,7 +2,7 @@ import React from 'react';
 import './amenities.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; 
 import { 
-    faBath, faBed, faTree, faWifi, faUtensils, faCouch, faTv, 
+    faBath, faBed, faTree, faWifi, faTv, 
     faConciergeBell, faShieldAlt, faBroom, faDoorOpen, faCar, 
     faBuilding, faWheelchair, faSwimmingPool, faSpa, faLanguage, faCheck 
 } from '@fortawesome/free-solid-svg-icons';

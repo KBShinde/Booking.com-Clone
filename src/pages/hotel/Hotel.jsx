@@ -58,30 +58,23 @@ const Hotel = () => {
   const [open, setOpen] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const location = useLocation();
-  const [destination, setDestination] = useState(location.state?.destination || "");
-  const [date, setDate] = useState(location.state?.date || "");
-  const [options, setOptions] = useState(location.state?.options || "");
-  const adults = options.adult
-
-
   const navigate = useNavigate();
 
   const handleReserve = (room) => {
     let isLoggedIn = localStorage.getItem("LoggedIn");
-    if ((isLoggedIn !== undefined && isLoggedIn !== null) && isLoggedIn) {
-    navigate("/fill_the_form", {
-      state: {
-        date,
-        room,
-        destination,
-        options,
-        hotel
-      }
-    });
-  } else {
-    navigate("/login");
-  }
+    if (isLoggedIn) {
+      navigate("/fill_the_form", {
+        state: {
+          // Pass necessary data here
+          room,
+          hotel
+        }
+      });
+    } else {
+      navigate("/login");
+    }
   };
+
   const handleClickOpen = (index) => {
     setSelectedIndex(index);
     setOpen(true);
@@ -91,38 +84,37 @@ const Hotel = () => {
     setOpen(false);
   };
   
-
   useEffect(() => {
-    fetchData();
-  }, [id]);
-
-  const fetchData = async () => {
-    try {
-      const response = await fetch(
-        `https://academics.newtonschool.co/api/v1/bookingportals/hotel/${id}`,
-        {
-          method: "GET",
-          headers: {
-            projectID: "f104bi07c490",
-            "Content-Type": "application/json",
-            Authorization: "Bearer YOUR_ACCESS_TOKEN",
-          },
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          `https://academics.newtonschool.co/api/v1/bookingportals/hotel/${id}`,
+          {
+            method: "GET",
+            headers: {
+              projectID: "f104bi07c490",
+              "Content-Type": "application/json",
+              Authorization: "Bearer YOUR_ACCESS_TOKEN",
+            },
+          }
+        );
+  
+        if (!response.ok) {
+          throw new Error("Failed to fetch data");
         }
-      );
-
-      if (!response.ok) {
-        throw new Error("Failed to fetch data");
+  
+        const jsonData = await response.json();
+        setHotel(jsonData.data);
+      } catch (error) {
+        setError(error.message);
+      } finally {
+        setLoading(false);
       }
-
-      const jsonData = await response.json();
-      setHotel(jsonData.data);
-    } catch (error) {
-      setError(error.message);
-    } finally {
-      setLoading(false);
-    }
-  };
-
+    };
+  
+    fetchData();
+  }, [id]); 
+  
   if (loading) {
     return <div className="loading">Loading...</div>;
   }
@@ -181,7 +173,7 @@ const Hotel = () => {
       </div>
       <div className="hotel-page">
         <div className="left-card">
-          <LeftCard destination={destination} date={date} options={options} /> 
+          <LeftCard destination={location.state?.destination || ""} date={location.state?.date || ""} options={location.state?.options || ""} /> 
         </div>
         <div className="hotel-content">
           <div className="hotel-text">
@@ -204,6 +196,7 @@ const Hotel = () => {
                     src={`${item}`}
                     loading="lazy"
                     style={{ cursor: 'pointer', objectFit: 'cover', width: '385px', height: '185px' }}
+                    alt=""
                   />
                 </ImageListItem>
               ))}
@@ -332,13 +325,12 @@ const Hotel = () => {
                       </select>
                     </td>
                     <td>
-                    <button className= "reserve" onClick={() => handleReserve(row)}>Reserve now</button>
+                    <button className="reserve" onClick={() => handleReserve(row)}>Reserve now</button>
                     </td>
                   </tr>
                 ))}
               </tbody>
             </table>
-            
           </div>
         </Element>
         
@@ -357,4 +349,3 @@ const Hotel = () => {
 };
 
 export default Hotel;
-

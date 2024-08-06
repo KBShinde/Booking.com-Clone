@@ -25,7 +25,6 @@ const FlightHeader = () => {
   const [to, setTo] = useState("");
   const [fromCode, setFromCode] = useState("");
   const [toCode, setToCode] = useState("");
-  const [showSuggestions, setShowSuggestions] = useState(true);
   const [openDate, setOpenDate] = useState(false);
   const [date, setDate] = useState(new Date());
   const [openOptions, setOpenOptions] = useState(false);
@@ -68,7 +67,7 @@ const FlightHeader = () => {
     } else {
       setFromSuggestions([]);
     }
-  }, [from]);
+  }, [debouncedFetchFromSuggestions, from]);
 
   useEffect(() => {
     if (to) {
@@ -76,7 +75,7 @@ const FlightHeader = () => {
     } else {
       setToSuggestions([]);
     }
-  }, [to]);
+  }, [debouncedFetchToSuggestions, to]);
 
   const handleOption = (name, operation) => {
     setOptions((prev) => {

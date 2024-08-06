@@ -1,5 +1,4 @@
 import './offerCard.css';
-import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useNavigate } from 'react-router-dom';
@@ -12,13 +11,13 @@ const OfferCard = () => {
   const haandlClick = () => {
     navigate('/flights')
   }
-    const settings = {
-        dots: true,
-        infinite: false,
-        speed: 500,
-        slidesToShow: 2,
-        slidesToScroll: 1
-      };
+    // const settings = {
+    //     dots: true,
+    //     infinite: false,
+    //     speed: 500,
+    //     slidesToShow: 2,
+    //     slidesToScroll: 1
+    //   };
 
   return (
     <div className="offers">
@@ -30,7 +29,7 @@ const OfferCard = () => {
            <button onClick={haandlClick}>Search for flights</button>
         </div>
         <div className='plane-img'>
-            <img src="https://r-xx.bstatic.com/xdata/images/xphoto/500x500/184698944.png?k=6bb1bf3c13db4a7ba3c22a2d1f1051f793c525a78104703b4dec3eb12101f545&o="/>
+            <img src="https://r-xx.bstatic.com/xdata/images/xphoto/500x500/184698944.png?k=6bb1bf3c13db4a7ba3c22a2d1f1051f793c525a78104703b4dec3eb12101f545&o=" alt=''/>
         </div>
         </div>
 

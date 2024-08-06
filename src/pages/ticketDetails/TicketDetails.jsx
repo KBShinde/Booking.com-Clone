@@ -1,9 +1,9 @@
-import { faPlaneDeparture, faBackpack, faSuitcaseRolling } from '@fortawesome/free-solid-svg-icons';
+import {  faSuitcaseRolling } from '@fortawesome/free-solid-svg-icons';
 import './ticketDetails.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Luggage, BusinessCenter, Backpack, Login } from '@mui/icons-material';
+import { Luggage, Backpack} from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+
 
 const TicketDetails = ({ flight, day, formattedDate, startDate, options }) => {
   const navigate = useNavigate();

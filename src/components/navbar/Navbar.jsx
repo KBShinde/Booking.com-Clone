@@ -18,7 +18,8 @@ export default function Navbar() {
     } else {
       setLoggedInOut(false);
     }
-  }, [localStorage.getItem("LoggedIn")]);
+  }, []); 
+  
 
   const handleLoginClick = () => {
     navigate('/login', { state: { from: location } });

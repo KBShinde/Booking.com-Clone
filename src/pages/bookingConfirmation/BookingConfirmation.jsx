@@ -3,7 +3,6 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLock, faPerson, faSuitcaseRolling } from "@fortawesome/free-solid-svg-icons";
 import { Luggage, Backpack } from '@mui/icons-material';
-import { faCreditCard } from "@fortawesome/free-regular-svg-icons";
 import { useState } from "react";
 
 const BookingConfirmation = () => {
@@ -19,7 +18,6 @@ const BookingConfirmation = () => {
     travelerDetails = [], 
     total = 0,
     startDate = '',
-    airline = {}
   } = location.state || {};
   console.log("traveller details :", travelerDetails)
 
